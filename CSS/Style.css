@@ -1,0 +1,67 @@
+.body {
+    background: linear-gradient(to right, #f8f8f8, #020101);
+}
+
+.mainBody {
+    width: 300px;
+    height: 500px;
+    border: 1px solid rgb(2, 0, 0);
+    border-radius: 15px;
+    background: linear-gradient(to top, #f8f8f8, #020101);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 4px 8px 25px;
+}
+
+.mainBody:hover {
+    height: 510px;
+}
+
+#screen {
+    width: 270px;
+    height: 120px;
+    padding: 15px 0px;
+    text-align: right;
+    font-size: 2.5em;
+    font-family: 'Oxygen Mono', monospace;
+    color: black;
+    box-shadow: 4px 0px 12px black inset;
+    background: white;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.clear_btn {
+    width: 50px;
+    height: 35px;
+    margin-left: 17px;
+    border-radius: 15px;
+    background: linear-gradient(to right, #f8f8f8, #020101);
+}
+
+.btn-2 {
+    margin-top: 10px;
+}
+
+.key-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    margin-left: 17px;
+    margin-top: 10px;
+    background: linear-gradient(to right, #f8f8f8, #020101);
+}
+
+.key-btn-1 {
+    width: 45px;
+    height: 45px;
+    margin-left: 20px;
+    background: linear-gradient(to top, #050505, #ffffff);
+    margin-top: 10px;
+}
+
+.key-btn-1:hover {
+    font-size: 20px;
+}
