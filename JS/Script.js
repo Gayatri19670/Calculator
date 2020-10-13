@@ -1,10 +1,9 @@
 const screen = document.getElementById('screen');
 let value1 = ''; // false;
 let value2 = ''; //false;
-let value3 = ''; // false;
 let operation = '+';
 let operPressed = false;
-let total = 0;
+let total = false;
 
 
 function onNumClick(value) {
@@ -20,7 +19,17 @@ function onNumClick(value) {
 }
 
 function onOprationClick(value) {
-    if (operPressed === false) {
+
+    if (total !== false) {
+        value = value.toString();
+        operPressed = true;
+        operation = value;
+        value1 = total;
+        value2 = '';
+        let privousValue = screen.innerHTML.toString();
+        screen.innerHTML = privousValue + value;
+        console.log('onOprationClick =>', total);
+    } else if (operPressed === false) {
         value = value.toString();
         operPressed = true;
         operation = value;
@@ -58,19 +67,32 @@ function totalValue() {
     }
     total = total.toString();
     screen.innerHTML = total;
-
-    if (operPressed) {
-        total = total + value;
-        screen.innerHTML = total + operation + value;
-    } else {
-        total = total + value;
-        screen.innerHTML = total;
-    }
 }
 
-
-
 //function that clear the display 
-function onOprationClick1() {
-    document.getElementById("screen").innerHTML = ""
+function onClearScreen() {
+    value1 = ''; // false;
+    value2 = ''; //false;
+    operation = '+';
+    operPressed = false;
+    total = false;
+    screen.innerHTML = "";
+}
+
+function onDeleteClick() {
+    let privousValue = screen.innerHTML.toString();
+    if (!operPressed && value1 !== '') {
+        const value = privousValue.substring(0, privousValue.length - 1);
+        value1 = value;
+        screen.innerHTML = value;
+    } else if (operPressed && value2 !== '') {
+        const value = privousValue.substring(0, privousValue.length - 1);
+        value2 = value2.substring(0, value2.length - 1);
+        screen.innerHTML = value;
+    } else {
+        const value = privousValue.substring(0, privousValue.length - 1);
+        operPressed = '';
+        screen.innerHTML = value;
+    }
+    console.log('else if =>', privousValue);
 }
