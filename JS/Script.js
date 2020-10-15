@@ -94,5 +94,5 @@ function onDeleteClick() {
         operPressed = '';
         screen.innerHTML = value;
     }
-    console.log('else if =>', privousValue);
+    // console.log('else if =>', privousValue);
 }
