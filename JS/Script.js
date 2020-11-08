@@ -2,6 +2,8 @@ const screen = document.getElementById('screen');
 let value1 = ''; // false;
 let value2 = ''; //false;
 let operation = '+';
+let per = 100;
+
 let operPressed = false;
 let total = false;
 
@@ -49,6 +51,7 @@ function onOprationClick(value) {
 }
 
 function totalValue() {
+    console.log('total1=', operation);
     switch (operation) {
         case '+':
             total = parseInt(value1) + parseInt(value2);
@@ -61,6 +64,10 @@ function totalValue() {
             break;
         case '*':
             total = parseInt(value1) * parseInt(value2);
+            break;
+        case '%':
+            total = parseInt(value1) * 100 / 100;
+            console.log("total=>", value1);
             break;
         default:
             return false;
@@ -78,7 +85,7 @@ function onClearScreen() {
     screen.innerHTML = "";
 }
 
-function onDeleteClick() {
+function 355() {
     let privousValue = screen.innerHTML.toString();
     if (!operPressed && value1 !== '') {
         const value = privousValue.substring(0, privousValue.length - 1);
