@@ -2,26 +2,29 @@ const screen = document.getElementById('screen');
 let value1 = ''; // false;
 let value2 = ''; //false;
 let operation = '+';
-let per = 100;
-
 let operPressed = false;
 let total = false;
+let count = 0;
 
 
 function onNumClick(value) {
     value = value.toString();
-    if (operPressed) {
-        value2 = value2 + value;
-        screen.innerHTML = value1 + operation + value2;
-    } else {
-        value1 = value1 + value;
-        screen.innerHTML = value1;
+    count++;
+    if (count <= 10) {
+        if (operPressed) {
+            value2 = value2 + value;
+            screen.innerHTML = value1 + operation + value2;
+        } else {
+            value1 = value1 + value;
+            screen.innerHTML = value1;
+        }
+        console.log(value);
     }
-    console.log(value);
+
 }
 
 function onOprationClick(value) {
-
+    count++;
     if (total !== false) {
         value = value.toString();
         operPressed = true;
@@ -51,7 +54,6 @@ function onOprationClick(value) {
 }
 
 function totalValue() {
-    console.log('total1=', operation);
     switch (operation) {
         case '+':
             total = parseInt(value1) + parseInt(value2);
@@ -65,8 +67,9 @@ function totalValue() {
         case '*':
             total = parseInt(value1) * parseInt(value2);
             break;
+
         case '%':
-            total = parseInt(value1) * 100 / 100;
+            total = parseInt(value1) / 100;
             console.log("total=>", value1);
             break;
         default:
@@ -75,6 +78,7 @@ function totalValue() {
     total = total.toString();
     screen.innerHTML = total;
 }
+
 //function that clear the display 
 function onClearScreen() {
     value1 = ''; // false;
@@ -85,7 +89,8 @@ function onClearScreen() {
     screen.innerHTML = "";
 }
 
-function 355() {
+function onDeleteClick() {
+    count--;
     let privousValue = screen.innerHTML.toString();
     if (!operPressed && value1 !== '') {
         const value = privousValue.substring(0, privousValue.length - 1);
