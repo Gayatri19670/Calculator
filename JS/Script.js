@@ -7,6 +7,8 @@ let total = false;
 let count = 0;
 
 
+
+
 function onNumClick(value) {
     value = value.toString();
     count++;
